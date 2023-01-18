@@ -18,7 +18,7 @@ To avoid misunderstandings we do not abbreviate the term __continuous deployment
 
     *   Set up a secret for GitHub actions called `MERGE_ME_SECRET` as described [here](https://docs.github.com/en/actions/security-guides/encrypted-secrets?tool=webui#creating-encrypted-secrets-for-a-repository) that includes the generated PAT
 
-*   Please make sure to give the necessary permissions to Github Actions in order for them to function properly within the project. To do this, go to the Project Settings in GitHub and navigate to Actions --> General --> Workflow Permissions: Choose the Read and Write -option. Additionally, make sure to check the "allow Github Actions to create pull requests" option.
+*   To build a new release via GitHub actions enable write access for the  `GITHUB_TOKEN` as described [here](https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-github-actions-settings-for-a-repository#configuring-the-default-github_token-permissions).
 
 
 ## Using CI/CD process

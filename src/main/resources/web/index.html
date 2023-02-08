@@ -8,8 +8,6 @@
 <body>
 <h1 id = "contextName">Context Name: </h1>
 
-<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-
 <script>
     const BASE_URL = window.location.protocol + '//' + location.host +'/BoundedContext';
 
@@ -20,12 +18,17 @@
     };
 
     const fetchGreetings = () => {
-        axios.get(`${BASE_URL}/contextName`)
-            .then(response => {
-                const contextName = response.data;
-                console.log(`GET contextName`, contextName);
+        fetch(`${BASE_URL}/contextName`)
+            .then( response => {
+                if (!response.ok) {
+                    throw Error(response.statusText);
+                }
+                return response.json();
+            })
+            .then(data => {
+                console.log(`GET contextName`, data);
                 // append to DOM
-                appendToDOM(contextName);
+                appendToDOM(data);
             })
             .catch(error => console.error(error));
     };
